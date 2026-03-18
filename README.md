@@ -9,6 +9,7 @@ The API supports CRUD operations for clients, admins, products, orders, and paym
 
 This README is available in both **English and Spanish**.
 
+
 ---
 
 <details>
@@ -70,8 +71,16 @@ Create a .env file:
 
 
 ```env
-MONGODB_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/?appName=Cluster0
-PORT=8000
+APP_NAME= ********
+ENV=********
+
+DB_HOST= ********
+DB_PORT=********
+DB_NAME=********
+DB_USER=********
+DB_PASSWORD=********
+
+JWT_SECRET=********
 ```
 ### 5. Run the API
 
@@ -122,7 +131,9 @@ http://127.0.0.1:8000
 ## Descripción
 
 FastAPI-Ecommerce-API es un backend RESTful diseñado para una plataforma de comercio electrónico.  
-Utiliza **FastAPI**, **MongoDB Atlas** y una arquitectura asíncrona con **Motor**, siguiendo buenas prácticas de diseño y escalabilidad.
+Utiliza **FastAPI**, **PostgreSQL (AWS RDS)** y una arquitectura asíncrona con **SQLAlchemy Async**, siguiendo buenas prácticas de diseño, escalabilidad y despliegue en producción.
+
+El sistema soporta operaciones CRUD para clientes, administradores, productos, órdenes y transacciones de pago, utilizando procesamiento asíncrono, inyección de dependencias y autenticación basada en JWT.
 
 ---
 
@@ -141,41 +152,49 @@ requirements.txt
 README.md
 .gitignore
 ```
+
 ## Instalación y Uso
-### 1. Clonar el repositorio
+1. Clonar el repositorio
 
 ```sh
 git clone https://github.com/camilotenorio1234/FastAPI-Ecommerce-API.git
 cd FastAPI-Ecommerce-API
 ```
 
-### 2. Crear entorno virtual
+2. Crear entorno virtual
 
 ```sh
 python -m venv venv
 venv\Scripts\activate
 ```
 
-### 3. Instalar dependencias
+3. Instalar dependencias
 
-```sh
+
+```
 pip install -r requirements.txt
 ```
 
-### 4. Variables de entorno
+4. Variables de entorno
 
-Crear archivo .env:
+Crear archivo .env dentro de app/:
+```sh
+APP_NAME= ********
+ENV=********
 
-```env
-MONGODB_URI=mongodb+srv://<user>:<password>@cluster.mongodb.net/?appName=Cluster0
-PORT=8000
+DB_HOST= ********
+DB_PORT=********
+DB_NAME=********
+DB_USER=********
+DB_PASSWORD=********
+
+JWT_SECRET=********
 ```
 
-### 5. Ejecutar la API
+5. Ejecutar la API
 
 ```sh
 uvicorn app.main:app --reload
-
 ```
 La API quedará disponible en:
 
@@ -209,11 +228,10 @@ http://127.0.0.1:8000
 
 ### Tecnologías
 - FastAPI
-- MongoDB Atlas
+- PostgreSQL (AWS RDS)
 - Motor (Async MongoDB Driver)
 - Pydantic
+- SQLAlchemy (Async)
 - Uvicorn
 - Python 3.12
-
-
 </details>
