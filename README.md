@@ -71,16 +71,7 @@ Create a .env file:
 
 
 ```env
-APP_NAME= ********
-ENV=********
-
-DB_HOST= ********
-DB_PORT=********
-DB_NAME=********
-DB_USER=********
-DB_PASSWORD=********
-
-JWT_SECRET=********
+MONGODB_URI=**************** PORT=8000
 ```
 ### 5. Run the API
 
@@ -131,9 +122,10 @@ http://127.0.0.1:8000
 ## Descripción
 
 FastAPI-Ecommerce-API es un backend RESTful diseñado para una plataforma de comercio electrónico.  
-Utiliza **FastAPI**, **PostgreSQL (AWS RDS)** y una arquitectura asíncrona con **SQLAlchemy Async**, siguiendo buenas prácticas de diseño, escalabilidad y despliegue en producción.
+Utiliza **FastAPI**, **MongoDB Atlas** y una arquitectura asíncrona con **Motor**, siguiendo buenas prácticas de diseño, escalabilidad y desarrollo modular.
 
-El sistema soporta operaciones CRUD para clientes, administradores, productos, órdenes y transacciones de pago, utilizando procesamiento asíncrono, inyección de dependencias y autenticación basada en JWT.
+El sistema soporta operaciones CRUD para clientes, administradores, productos, órdenes y transacciones de pago, utilizando procesamiento asíncrono, inyección de dependencias y validación de datos con Pydantic.
+
 
 ---
 
@@ -179,16 +171,7 @@ pip install -r requirements.txt
 
 Crear archivo .env dentro de app/:
 ```sh
-APP_NAME= ********
-ENV=********
-
-DB_HOST= ********
-DB_PORT=********
-DB_NAME=********
-DB_USER=********
-DB_PASSWORD=********
-
-JWT_SECRET=********
+MONGODB_URI=**************** PORT=8000
 ```
 
 5. Ejecutar la API
@@ -201,7 +184,6 @@ La API quedará disponible en:
 ```sh
 http://127.0.0.1:8000
 ```
-
 ## Endpoints disponibles
 
 ### Clientes
@@ -221,17 +203,16 @@ http://127.0.0.1:8000
 - GET /ordenes
 - POST /ordenes/{id}/procesar_pago
 
-
 ### Pagos
 - POST /pagos
 - GET /pagos/{id}
 
-### Tecnologías
+## Tecnologías
 - FastAPI
-- PostgreSQL (AWS RDS)
+- MongoDB Atlas
 - Motor (Async MongoDB Driver)
 - Pydantic
-- SQLAlchemy (Async)
 - Uvicorn
 - Python 3.12
+
 </details>
